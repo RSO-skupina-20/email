@@ -1,0 +1,18 @@
+kumuluzee:
+  name: email
+  version: 1.0.0
+  env:
+    name: dev
+  streaming:
+    kafka:
+      consumer:
+        bootstrap-servers: host.docker.internal:9092
+        group-id: email-processor-group
+        enable-auto-commit: true
+        auto-commit-interval-ms: 1000
+        auto-offset-reset: earliest
+        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+  cdi:
+    enabled: true
